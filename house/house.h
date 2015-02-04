@@ -1,0 +1,4 @@
+struct house
+{
+   int address;
+};
