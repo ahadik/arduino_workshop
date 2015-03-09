@@ -14,17 +14,14 @@ void setup()
   // the current address in the EEPROM (i.e. which byte
   // we're going to write to next)
   int val;
-  for(val = 0; val<600; val++){
+  for(val = 0; val<512; val++){
       // write the value to the appropriate byte of the EEPROM.
       // these values will remain there when the board is
       // turned off.
-      EEPROM.write(val, val);
-      if (val > 512){
-        Serial.println("Maximum bytes reached");
-        break;
-      }
-    }
+      int read_val = EEPROM.read(val);
+      Serial.println(read_val);
   }
+}
 
 void loop()
 {
